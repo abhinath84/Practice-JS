@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>JS Practice - wrapper object class</title>
+        <script type="text/javascript" src="wrapper.js"></script>
+        <script>
+            var betterSelectObj = null;
+
+            window.onload = function() {
+                betterSelectObj = new BetterSelect('theList');
+            }
+
+            function fillList() {
+                betterSelectObj.fill(new Array("One", "Two", "Three", "Four", "Five"));
+            }
+
+            function clearList() {
+                betterSelectObj.clear();
+            }
+
+            function countList() {
+                alert(betterSelectObj.count());
+            }
+
+            function findList() {
+                var searchStr = document.getElementById('txtToFind').value;
+
+                if(searchStr != '') {
+                    betterSelectObj.find(searchStr, true);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form action="" method="post">
+            <select multiple="multiple" name="select1" id="theList" style="height: 150px; width: 150px;">
+            </select>
+            <br />
+            <input type="button" value="Fill The List" onclick="fillList();" />
+            <input type="button" value="Clear The List" onclick="clearList();" />
+            <input type="button" value="What's The Count?" onclick="countList();" />
+            <input type="text" id="txtToFind" /><input type="button" value="Search" onclick="findList();" />
+        </form>
+    </body>
+</html>
