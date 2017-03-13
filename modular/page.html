@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Practice JS</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div id="peopleStats" class="people">
+            <h1>Stats</h1>
+            <span>People: </span>
+            <label>
+                <script id="stats-template" type="text/template">
+                    {{#stats}}
+                        <span>{{.}}</span>
+                    {{/stats}}
+                </script>
+            </label>
+        </div>
+        <div id="peopleModule" class="people">
+            <h1>People</h1>
+            <input placeholder="name" type="text">
+            <button id="addPerson">Add Person</button>
+            <ul id="people">
+                <script id="people-template" type="text/template">
+                    {{#people}}
+                        <li>
+                            <span>{{.}}</span>
+                            <i class="del">X</i>
+                        </li>
+                    {{/people}}
+                </script>
+            </ul>
+
+        </div>
+
+        <script type="text/javascript" src="mustache.min.js"></script>
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="stats.js"></script>
+        <script type="text/javascript" src="people.js"></script>
+    </body>
+</html>
