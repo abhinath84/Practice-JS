@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>JS Practice - wrapper object class</title>
+    </head>
+    <body>
+        <script type="text/javascript" src="encapsulation.js"></script>
+        <script>
+            var rectangle = new Rectangle(10, 20);
+            document.writeln(rectangle.toString() + "<br>");
+            document.writeln(rectangle.area() + "<br>");
+
+            // Change the width & height of the rectangle using (.) notation in object.
+            rectangle._width = 100;
+            rectangle._height = 200;
+            document.writeln("After changing the height & width: <br>");
+            document.writeln(rectangle.toString() + "<br>");
+            document.writeln(rectangle.area() + "<br>");
+
+            document.writeln("After setting height & width: <br>");
+            rectangle.set(100, 200);
+            document.writeln(rectangle.toString() + "<br>");
+            document.writeln(rectangle.area() + "<br>");
+
+            document.writeln("After setting height & width: <br>");
+            rectangle.setHeight(400);
+            rectangle.setWidth(800);
+            document.writeln(rectangle.toString() + "<br>");
+            document.writeln(rectangle.area() + "<br>");
+
+            var drectangle = new DepthRectangle(10, 20, 30);
+            document.writeln(drectangle.toString() + "<br>");
+            document.writeln(drectangle.volume() + "<br>");
+        </script>
+    </body>
+</html>
