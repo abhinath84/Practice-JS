@@ -29,6 +29,16 @@
 
 */
 
+function extend(child, parent) {
+    // Set prototype of the subclass to it's superclass. Otherwise, we just get a
+    // subclass of 'object'.
+    child.prototype = new parent();
+
+    // As DepthRectangle prototype was just created with Rectangle constructor, we
+    // have to re-assign it to DepthRectangle.
+    child.prototype.constructor = child;
+}
+
 var Rectangle = function(w, h) {
     // define member variables
     var _width = w || 0;
@@ -59,19 +69,16 @@ var DepthRectangle = function (w, h, d) {
 
     // Public methods
     // Methods of DepthRectangle class
-    this.volume = function() {
-        return(this.area() * _depth);
-    }
-
-    this.toString = function() {
-        return "DepthRectangle of width: " + this.getWidth() + " & height: " + this.getHeight() + " & depth: " + _depth;
-    }
+    this.volume = function() { return(this.area() * _depth); }
+    this.toString = function() { return "DepthRectangle of width: " + this.getWidth() + " & height: " + this.getHeight() + " & depth: " + _depth; }
 }
 
 // Set prototype of the subclass to it's superclass. Otherwise, we just get a
 // subclass of 'object'.
-DepthRectangle.prototype = new Rectangle();
+//DepthRectangle.prototype = new Rectangle();
 
 // As DepthRectangle prototype was just created with Rectangle constructor, we
 // have to re-assign it to DepthRectangle.
-DepthRectangle.prototype.constructor = DepthRectangle;
+//DepthRectangle.prototype.constructor = DepthRectangle;
+
+extend(DepthRectangle, Rectangle);
